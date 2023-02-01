@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Greetings</title>
-</head>
-<body>
+<?php $this->view('shared/header', 'Greetings' . $data); ?>
 	Hi <?= $data ?>!<br>
 	Hi <?php echo $data; ?>!<br>
-</body>
-</html>
+<?php $this->view('shared/footer'); ?>
