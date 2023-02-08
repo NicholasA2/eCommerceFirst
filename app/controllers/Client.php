@@ -4,7 +4,8 @@ namespace app\controllers;
 class Client extends \app\core\Controller{
 	public function index(){
 		$client = new \app\models\Client();
-		echo "Client index";
+		$client = $client->getAll();
+		$this->view('Client/index', $clients);
 	}
 
 	public function create(){
@@ -22,4 +23,12 @@ class Client extends \app\core\Controller{
 			$this->view('Client/create');
 		}
 	}
+
+	public function delete($client_id){
+		$client = new \app\models\Client();
+		$client->delete($client_id);
+		header('location:/Client/index');
+	}
+
+
 }

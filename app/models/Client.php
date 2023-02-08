@@ -17,4 +17,19 @@ class Client extends \app\core\Model{
 		$this->client_id = $this->connection->lastInsertId();
 	}
 
+
+	public function delete($client_id){
+		$SQL = "DELETE FROM client WHERE client_id=:client_id";
+		$STH = $this->connection->prepare($SQL);
+		$data = ['client_id'=>$this->client_id];
+		$STH->execute($data);
+	}
+
+	public function getAll(){
+		$SQL = "SELECT * FROM client";
+		$STH = $this->connection->prepare($SQL);
+		$STH = execute($SQL);
+		$STH = setFetchMode(PDO::FETCH_CLASS, 'app\\models\\Client');
+		return $STH->fetchAll();
+	}
 }
