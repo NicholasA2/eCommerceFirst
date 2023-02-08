@@ -5,7 +5,7 @@
 <?php
 
 foreach($data as $key=>$logEntry) { ?>
-	<tr><td><?= $logEntry ?></td><td><a href='/Main/logDelete/<?=$key?>'>delete</a></td></tr>
+	<tr><td><?= htmlentities($logEntry) ?></td><td><a href='/Main/logDelete/<?=$key?>'>delete</a></td></tr>
 <?php 
 
 }
