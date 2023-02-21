@@ -28,8 +28,8 @@ class Client extends \app\core\Model{
 	public function getAll(){
 		$SQL = "SELECT * FROM client";
 		$STH = $this->connection->prepare($SQL);
-		$STH = execute($SQL);
-		$STH = setFetchMode(PDO::FETCH_CLASS, 'app\\models\\Client');
+		$STH = execute();
+		$STH = setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Client');
 		return $STH->fetchAll();
 	}
 }
