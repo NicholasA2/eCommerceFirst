@@ -30,7 +30,7 @@ class User extends \app\core\Controller{
 			//process the input
 			$user = new \app\models\User();
 			$usercheck = $user->getByUsername($_POST['username']);
-			if(!usercheck){
+			if(!$usercheck){
 				$user->username= $_POST['username'];
 				$user->password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 				$user->insert();
