@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace app\controllers;
 
 class Message extends \app\core\Controller{
@@ -18,17 +18,29 @@ class Message extends \app\core\Controller{
 				header('location:/User/profile?error=' . "$receiver is not a valid user. No message sent.");
 			}
 		}
-			header('location:/User/profile');
-		}
+		header('location:/User/profile');
+	}
 
-		public function delete($message_id){
+	public function delete($message_id){
 		$user_id = $_SESSION['user_id'];
 		$message = new \app\models\Message();
-		$success = $message->delete($message_id, $user_id);
+		$success = $message->delete($message_id,$user_id);
 		if($success)
-		header('location:/User/profile?success=Message deleted.');
+			header('location:/User/profile?success=Message deleted.');
 		else
-		header('location:/User/profile?error=You are not allowed to delete this message.');
-		}
+			header('location:/User/profile?error=You are not allowed to delete this message.');
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+

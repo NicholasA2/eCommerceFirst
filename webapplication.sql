@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 05:41 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Generation Time: Feb 22, 2023 at 05:49 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `client` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -50,16 +50,14 @@ CREATE TABLE `message` (
   `receiver` int(11) NOT NULL,
   `message` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `message`
 --
 
 INSERT INTO `message` (`message_id`, `sender`, `receiver`, `message`, `timestamp`) VALUES
-(1, 2, 2, 'Hi Tarzan, how is Cheetah?', '2023-02-21 16:25:11'),
-(2, 4, 4, 'Hi', '2023-02-22 14:45:30'),
-(5, 2, 4, 'Jane', '2023-02-22 15:16:10');
+(2, 4, 2, 'I love you!', '2023-02-22 14:43:13');
 
 -- --------------------------------------------------------
 
@@ -73,7 +71,7 @@ CREATE TABLE `profile_information` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `profile_information`
@@ -93,16 +91,15 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password_hash` varchar(72) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES
-(2, 'Tarzan', '$2y$10$wgxj3MK.XtA/JFeS2TFge.kbVAd3WhxrdRacohBVJrRUK3cxScB12'),
-(4, 'Jane', '$2y$10$Y1yRtEtxjb6GBY172/WQt.AYiC307ARAd22BUqZf04w3PBFkFOE3W'),
-(5, 'toDelete', '$2y$10$qLxZwPtXcqCXW1j0Jf6QdOVn9YykxlkhOQk6wUY8HzRK0TnqcHbsm');
+(2, 'Tarzan', '$2y$10$xtKLUe1rnNz01IiJjee89OLTZ6Oxd/MxRmX3Y5QPMeOeOx0wxeS12'),
+(4, 'Jane', '$2y$10$kTHPRii7r76Jx8.kwVLfwe4dBhvECsHjxnJMIl5WVfbZm45GbIDh6');
 
 --
 -- Indexes for dumped tables
@@ -149,7 +146,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT for table `message`
 --
 ALTER TABLE `message`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

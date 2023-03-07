@@ -1,16 +1,16 @@
-<?php 
+<?php
 namespace app\controllers;
 
 class Main extends \app\core\Controller{
-	function index() {
+	function index(){
 		$this->view('Main/index');
 	}
 
-	function index2() {
+	function index2(){
 		$this->view('Main/index2');
 	}
 
-	function greetings($name = "Carl") {//optional parameter:$name
+	function greetings($name = "Carl"){//optional parameter:$name
 		$this->view('Main/greetings', $name);
 	}
 
@@ -31,7 +31,7 @@ class Main extends \app\core\Controller{
 	function viewUserLog(){
 		$userLog = new \app\models\UserLog();
 		$contents = $userLog->getAll();
-		$this->view('Main/userLogList', $contents);
+		$this->view('Main/userLogList',$contents);
 	}
 
 	function logDelete($lineNumber){

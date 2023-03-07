@@ -9,11 +9,11 @@
 </head>
 <body>
 	<div class="container">
-	<?php 
-	if(isset($_GET['success'])){
-		echo '<div class="alert alert-success">' . $_GET['success'] . '</div>';
-	}
-	if(isset($_GET['error'])){
-		echo '<div class="alert alert-danger">' . $_GET['error'] . '</div>';
-	}
+<?php
+if(isset($_GET['success'])){
+	echo '<div class="alert alert-success">'.$_GET['success'].'</div>';
+}
+if(isset($_GET['error'])){
+	echo '<div class="alert alert-danger">'.$_GET['error'].'</div>';
+}
 ?>

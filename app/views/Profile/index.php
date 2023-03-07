@@ -1,15 +1,15 @@
-<?php $this->view('shared/header', 'Your Profile'); ?>
-
+<?php $this->view('shared/header','Your Profile'); ?>
 <dl>
-<dt>First name</dt>
-<dd><?=$data->first_name?></dd>
-<dt>Last name</dt>
-<dd><?=$data->last_name?></dd>
-<dt>Middle name</dt>
-<dd><?=$data->middle_name?></dd>
+    <dt>First Name</dt>
+    <dd><?= $data->first_name?></dd>
+    <dt>Last Name</dt>
+    <dd><?= $data->last_name?></dd>
+    <dt>Middle Name</dt>
+    <dd><?= $data->middle_name?></dd>
+    <dd><img src="/eComH23S3/app/images/<?= $data->picture?>"></dd>
 </dl>
 
-<a href='/Profile/edit'>Edit my profile</a>
-<a href='/User/profile'>Back</a>
+<a href="/Profile/edit">Edit my profile</a>
+<a href="/User/profile">Back</a>
 
 <?php $this->view('shared/footer'); ?>

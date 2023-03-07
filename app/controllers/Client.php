@@ -1,10 +1,10 @@
-<?php 
+<?php
 namespace app\controllers;
 
 class Client extends \app\core\Controller{
 	public function index(){
 		$client = new \app\models\Client();
-		$client = $client->getAll();
+		$clients = $client->getAll();
 		$this->view('Client/index', $clients);
 	}
 
@@ -18,6 +18,7 @@ class Client extends \app\core\Controller{
 			$client->middle_name = $_POST['middle_name'];
 			//invoke the insert method
 			$client->insert();
+			//back to the list of clients
 			header('location:/Client/index');
 		}else{
 			$this->view('Client/create');

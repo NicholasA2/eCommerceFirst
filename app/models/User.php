@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace app\models;
 
 class User extends \app\core\Model{
@@ -19,9 +19,9 @@ class User extends \app\core\Model{
 		$SQL = 'INSERT INTO User(username, password_hash) VALUES (:username, :password_hash)';
 		$STH = $this->connection->prepare($SQL);
 
-		$STH->execute(['username'=>$this->username, 'password_hash'=>$this->password_hash]);
-
-		return $this->connection->lastInsertId();//returns the value of the new PK
+		$STH->execute(['username'=>$this->username,
+						'password_hash'=>$this->password_hash]);
+		return $this->connection->lastInsertId();// returns the value of the new PK
 	}
 
 }

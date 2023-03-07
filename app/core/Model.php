@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace app\core;
 
 class Model{
@@ -9,10 +9,10 @@ class Model{
 		$user = 'root';
 		$pass = '';
 		try {
- 			$this->connection = new \PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+			$this->connection = new \PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		}
 		catch(PDOException $e) {
- 			echo $e->getMessage();
+			echo $e->getMessage();
 		}
 	}
 }

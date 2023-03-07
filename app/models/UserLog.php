@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace app\models;
 
 define('LOG_FILE', 'log.txt');
@@ -9,13 +9,13 @@ class UserLog{
 	public function insert(){
 		//TODO: also lock the file
 		$fh = fopen(LOG_FILE, 'a');
-		flock($fh, LOCK_EX); //need an exclusive lock to write
+		flock($fh, LOCK_EX);//need an exclusive lock to write
 		fwrite($fh, "$this->name has visited!\n");
-		fclose($fh); //release the resource and the lock
+		fclose($fh);//release the resource and the lock
 	}
 
 	public function getAll(){
-		$contents = file(LOG_FILE);
+		$contents =  file(LOG_FILE);
 		return $contents;
 	}
 
