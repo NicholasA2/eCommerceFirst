@@ -9,8 +9,8 @@ class ProfileInformation extends \app\core\Model {
     public $picture;
 
     public function insert() {
-        $SQL = "INSERT INTO PROFILE_INFORMATION(user_id, first_name, last_name, middle_name, picture) value (:user_id, :first_name, :last_name, :middle_name, :picture)";
-        $STH = $this->connection->prepare($SQL);
+        $SQL = "INSERT INTO profile_information(user_id, first_name, last_name, middle_name, picture) VALUES (:user_id, :first_name, :last_name, :middle_name, :picture)";
+        $STH = self::$connection->prepare($SQL);
         $data = [
             'user_id'=>$this->user_id,
             'first_name'=>$this->first_name,
@@ -23,7 +23,7 @@ class ProfileInformation extends \app\core\Model {
     }
     public function update() {
         $SQL = "UPDATE `profile_information` SET `first_name`=:first_name,`last_name`=:last_name,`middle_name`=:middle_name,`picture`=:picture WHERE user_id = :user_id";
-        $STH = $this->connection->prepare($SQL);
+        $STH = self::$connection->prepare($SQL);
         $data = [
             'user_id'=>$this->user_id,
             'first_name'=>$this->first_name,
@@ -35,8 +35,8 @@ class ProfileInformation extends \app\core\Model {
         return $STH->rowCount();
     }
     public function getByUserId($user_id) {
-        $SQL = "SELECT * FROM PROFILE_INFORMATION WHERE user_id = :user_id";
-        $STH = $this->connection->prepare($SQL);
+        $SQL = "SELECT * FROM profile_information WHERE user_id = :user_id";
+        $STH = self::$connection->prepare($SQL);
         $data = [
             'user_id'=>$user_id
         ];

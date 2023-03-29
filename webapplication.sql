@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 05:49 PM
+-- Generation Time: Mar 08, 2023 at 03:56 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -70,15 +70,17 @@ CREATE TABLE `profile_information` (
   `user_id` int(11) NOT NULL,
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
-  `middle_name` varchar(50) NOT NULL
+  `middle_name` varchar(50) NOT NULL,
+  `picture` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `profile_information`
 --
 
-INSERT INTO `profile_information` (`user_id`, `first_name`, `last_name`, `middle_name`) VALUES
-(2, 'Jon', 'C', 'layton');
+INSERT INTO `profile_information` (`user_id`, `first_name`, `last_name`, `middle_name`, `picture`) VALUES
+(2, 'Jon', 'C', 'layton', ''),
+(6, 'Mario', 'Bros', '', '6-6408a19c88808.jpg');
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES
 (2, 'Tarzan', '$2y$10$xtKLUe1rnNz01IiJjee89OLTZ6Oxd/MxRmX3Y5QPMeOeOx0wxeS12'),
-(4, 'Jane', '$2y$10$kTHPRii7r76Jx8.kwVLfwe4dBhvECsHjxnJMIl5WVfbZm45GbIDh6');
+(4, 'Jane', '$2y$10$kTHPRii7r76Jx8.kwVLfwe4dBhvECsHjxnJMIl5WVfbZm45GbIDh6'),
+(6, 'Tarzan2', '$2y$10$Kacx75A0VOKhvexni3G54OzVu5QBmTj2zD4MnV2hJRrQFZ1kITuHW');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +155,7 @@ ALTER TABLE `message`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

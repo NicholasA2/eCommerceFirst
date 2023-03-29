@@ -1,0 +1,48 @@
+# Access Filtering
+
+The goal of access filtering is to prevent requests from users that do not fit criteria to reach resources that require these criteria.
+
+e.g., you need to be logged in to reach your profile
+
+
+## DRY principle
+
+DRY stands for "Don't Repeat Yourself". This is a programming principle whereby you write code once and use it many times. This is done to increase scalability and maintainability of code.
+
+
+## Metadata: Attributes
+
+<html><head><title>This is a title</title></head><body>
+<p>This is <em>text</em></p>
+</body></html>
+
+Classes have
+- properties
+- methods
+- metadata: information about the class, their properties, methods, constants, parameters
+
+The metadata can be:
+- comments
+- DocComments: These are documentation comments that allow the documentation of code /** This is a DocComment */
+- Attributes (as of PHP 8): structured, machine-readable metadata information.
+
+If a class was a fir (un sapin),
+Metadata would be decorations,
+And together we would have a christmas tree.
+
+Metadata does not affect how code runs. However, metada can be read and used in an algorithm.
+
+
+## Reflection Objects
+
+Toward the purpose of reading metadata, in PHP we use the ReflectionObject class.
+
+It allows us to access and use metadata, and more importantly attributes. 
+
+
+## ...back to Access Filtering
+
+Using Attributes, we will define metadata criteria on Controller classes and their methods. These criteria will have to be met in order to allow traffic to reach controller methods.
+
+As part of the routing algorithm, we will verify the set attributes for each controller method called and choose to allow or refuse access to these resources.
+

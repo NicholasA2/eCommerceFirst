@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+//this is a class attribute
 class User extends \app\core\Controller{
 
 	public function index(){//login page
@@ -57,10 +58,10 @@ class User extends \app\core\Controller{
 		$this->view('User/profile',$messages);
 	}
 
-#[\app\filters\Login]
-public function somethingSecret(){
-	echo "If you see this, you are logged in";
-}
+	#[\app\filters\Login]
+	public function somethingSecret(){
+		echo "If you see this, you are logged in";
+	}
 
 
 }

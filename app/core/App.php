@@ -46,14 +46,13 @@ class App{
 		//build the reflection object to read the methods, properties, attributes
 		$reflection = new \ReflectionObject($controller);
 		$classAttributes = $reflection->getAttributes(
-
 			\app\core\AccessFilter::class,
 			\ReflectionAttribute::IS_INSTANCEOF
-
 		);
 		$methodAttributes = $reflection->getMethod($method)->getAttributes(
 			\app\core\AccessFilter::class,
-			\ReflectionAttribute::IS_INSTANCEOF);
+			\ReflectionAttribute::IS_INSTANCEOF
+		);
 		$attributes = array_values(array_merge($classAttributes, $methodAttributes));//putting all attributes in one single list
 		//run through all the conditions
 		foreach ($attributes as $attribute) {

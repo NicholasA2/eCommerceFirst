@@ -6,7 +6,7 @@
     <dd><?= $data->last_name?></dd>
     <dt>Middle Name</dt>
     <dd><?= $data->middle_name?></dd>
-    <dd><img src="/eComH23S3/app/images/<?= $data->picture?>"></dd>
+    <dd><img src="/images/<?= $data->picture?>"></dd>
 </dl>
 
 <a href="/Profile/edit">Edit my profile</a>
