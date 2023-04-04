@@ -1,5 +1,5 @@
 <?php $this->view('shared/header',_('List of clients')); ?>
-<a href='/Client/create'><?= _('Create a new client') ?></a>
+<a href='/Client/create'><?= _('Create a new client record') ?></a>
 <table>
 	<tr><th><?= _('First name') ?></th><th><?= _('Last name') ?></th><th><?= _('Middle name') ?></th><th><?= _('actions') ?></th></tr>
 <?php

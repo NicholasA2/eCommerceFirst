@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html dir="<?=_('ltr')?>" lang="<?=_('en')?>">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
