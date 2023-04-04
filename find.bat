@@ -1,1 +1,1 @@
-\findutils\bin\find.exe %*
+\GnuWin32\bin\find.exe %*

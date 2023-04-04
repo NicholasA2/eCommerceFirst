@@ -1,1 +1,1 @@
-\gettext\bin\xgettext.exe %*
+\GnuWin32\bin\xgettext.exe %*
