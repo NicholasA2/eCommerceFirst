@@ -3,7 +3,7 @@ namespace app\controllers;
 
 // use DateTime;
 // use IntlDateFormatter;
-// use \app\core\TimeHelper;
+use \app\core\TimeHelper;
 
 class Service extends \app\core\Controller{
 	public function index($client_id){//parent id
@@ -18,7 +18,7 @@ class Service extends \app\core\Controller{
 			$service = new \app\models\Service();
 			//populate the client
 			$service->description = htmlentities($_POST['description']);
-			$service->datetime = $_POST['datetime'];
+			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
 			$service->client_id = $client_id;
 			//invoke the insert method
 			$service->insert();
@@ -33,7 +33,7 @@ class Service extends \app\core\Controller{
 
 	public function delete($service_id){//PK value
 		$service = new \app\models\Service();
-		$service->get($service_id);
+		$service = $service->get($service_id);
 		//$client = $service->getClient(); //do this in the view
 		if(isset($_POST['action'])){
 			//proceed with deletion
@@ -52,8 +52,8 @@ class Service extends \app\core\Controller{
 
 		if(isset($_POST['action'])){
 			//save the changes to the object
-			$service->description = $_POST['description'];
-			$service->datetime = $_POST['datetime'];
+			$service->description = htmlentities($_POST['description']);
+			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
 			//we don't change key values
 			//save the changes to the database
 			$service->update();

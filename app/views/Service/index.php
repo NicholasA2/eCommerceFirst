@@ -11,8 +11,8 @@ $services = $data->getServices();
 foreach ($services as $service) { ?>
 	<tr><td><?= TimeHelper::DTOutput($service) ?></td><!--TODO: output internationalized date -->
 		<td><?= $service->description ?></td>
-		<td><a href='/Service/delete/<?=$client->client_id?>'><?= _('delete') ?></a> | 
-			<a href='/Service/edit/<?=$client->client_id?>'><?= _('edit') ?></a></td></tr>
+		<td><a href='/Service/delete/<?=$service->service_id?>'><?= _('delete') ?></a> | 
+			<a href='/Service/edit/<?=$service->service_id?>'><?= _('edit') ?></a></td></tr>
 <?php
 
 }
