@@ -6,15 +6,15 @@ use DateTimeZone;
 use DateTime;
 
 class TimeHelper{
-	public static function DTOutput($s_datetime) {
+	public static function DTOutput($s_datetime){
 		//create a datetime object in the timezone of reference for DB data
 		$datetime = new DateTime($s_datetime, new DateTimeZone('UTC'));
 		global $tz;
 		global $lang;
 		$fmt = new IntlDateFormatter(
 			$lang,
-			IntlDateFormatter::MEDIUM, //date format
-			IntlDateFormatter::MEDIUM, //time format
+			IntlDateFormatter::MEDIUM,//date format
+			IntlDateFormatter::MEDIUM,//time format
 			$tz
 		);
 		return $fmt->format($datetime);
@@ -24,8 +24,8 @@ class TimeHelper{
 		//create a datetime object in the local timezone
 		global $tz;
 		$datetime = new DateTime($s_datetime, new DateTimeZone($tz));
-		//change the timezone
-		$datetime->setTimeZone(new DateTimeZone('UTC'));
+		//change the timezone to UTC
+		$datetime->setTimezone(new DateTimeZone('UTC'));
 		//return to a standard string format
 		return $datetime->format('Y-m-d H:i:s');
 	}
@@ -34,10 +34,9 @@ class TimeHelper{
 		//create a datetime object in the local timezone
 		global $tz;
 		$datetime = new DateTime($s_datetime, new DateTimeZone('UTC'));
-		//change the timezone
-		$datetime->setTimeZone(new DateTimeZone($tz));
+		//change the timezone to UTC
+		$datetime->setTimezone(new DateTimeZone($tz));
 		//return to a standard string format
 		return $datetime->format('Y-m-d H:i:s');
 	}
-
 }

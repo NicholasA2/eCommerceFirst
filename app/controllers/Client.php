@@ -39,8 +39,8 @@ class Client extends \app\core\Controller{
 		//modify a client record
 		$client = new \app\models\Client();
 		$client = $client->get($client_id);
-		if(isset($_POST['action'])){
-			//save the changes to the object
+		if(isset($_POST['action'])){//form is submitted
+			//save the data to the object
 			$client->first_name = $_POST['first_name'];
 			$client->last_name = $_POST['last_name'];
 			$client->middle_name = $_POST['middle_name'];
@@ -48,17 +48,19 @@ class Client extends \app\core\Controller{
 			$client->update();
 			header('location:/Client/index');
 		}else{
-			$this->view('Client/edit', $client);
+			$this->view('Client/edit',$client);
 		}
+
 	}
+
 
 	public function date(){
 		//TODO: get the user timezone choice (get this from the browser)
-		$date = new DateTime();
+ 		$date = new DateTime();
 		//$date = new DateTime('Tuesday, April 4, 2023, 15:23:06');
 
 		global $lang;
-		echo TimeHelper::DTOutput($date, $lang, 'America/Toronto');
+		echo TimeHelper::DTOutput($date,$lang,'America/Toronto');
 	}
 
 }

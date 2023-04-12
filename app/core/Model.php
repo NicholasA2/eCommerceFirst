@@ -8,7 +8,7 @@ class Model{
 	public function __construct(){
 		
 		if(self::$connection == null){
-			//load the .env from the given folder
+			//load the .env file from the given folder
 			$env = \Dotenv\Dotenv::createImmutable(getcwd());
 			$env->load();
 			$env->required(['db_host','db_user','db_pass','db_name','db_charset'])->notEmpty();

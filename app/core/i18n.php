@@ -5,8 +5,8 @@ if(isset($_GET['lang'])){ //if there is a language choice in the querystring
 	setcookie("lang",$lang, 0, '/'); //set a cookie for the entire domain
 }else{
 	$default = Locale::acceptFromHttp($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-	$lang=(isset($_COOKIE["lang"])?$_COOKIE["lang"]:'en');
-} 
+	$lang=(isset($_COOKIE["lang"])?$_COOKIE["lang"]:$default); 
+}
 
 //from cookie or default
 //extract the root language from the complete locale to use with strftime
@@ -19,7 +19,7 @@ textdomain($lang); //what is the file name to find translations
 
 //fetch the user timezone
 $tz = 'UTC'; //default
-if (isset($_COOKIE['TZ'])){
+if(isset($_COOKIE['TZ'])){
 	$tz = $_COOKIE['TZ'];
 }else{
 	//get the timezone from the browser into a cookie called TZ
@@ -28,7 +28,7 @@ if (isset($_COOKIE['TZ'])){
 	<head><meta http-equiv="refresh" content="1">
 	<script type="text/javascript">
 	if (navigator.cookieEnabled)
-		document.cookie = "TZ=" + Intl.DateTimeFormat().resolvedOptions().timeZone + ";path=/";
+		document.cookie = "TZ="+ Intl.DateTimeFormat().resolvedOptions().timeZone + ";path=/";
 	</script>
 	</head>
 	</html>

@@ -30,12 +30,14 @@ class Client extends \app\core\Model{
 		return $STH->rowCount();
 	}
 
+
 	public function delete($client_id){
 		$SQL = "DELETE FROM client WHERE client_id=:client_id";
 		$STH = self::$connection->prepare($SQL);
 		$data = ['client_id'=>$client_id];
 		$STH->execute($data);
 	}
+
 
 	public function getAll(){
 		$SQL = "SELECT * FROM client";
@@ -45,17 +47,16 @@ class Client extends \app\core\Model{
 		return $STH->fetchAll();
 	}
 
-
 	public function get($client_id){
-		$SQL = "SELECT * FROM client WHERE client_id=:client_id";
+		$SQL = 'SELECT * FROM client WHERE client_id=:client_id';
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute(['client_id'=>$client_id]);
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Client');
 		return $STH->fetch();
 	}
 
-	//return service records for this client $services = client->getServices();
-	public function getService(){
+	//return service records for this client $services = $client->getServices();
+	public function getServices(){
 		$SQL = "SELECT * FROM service WHERE client_id=:client_id";
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute(['client_id'=>$this->client_id]);

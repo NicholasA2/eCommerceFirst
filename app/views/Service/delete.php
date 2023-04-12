@@ -1,12 +1,12 @@
-<?php $this->view('shared/header',_('Delete a service appointment')); ?>
+<?php $this->view('shared/header', _('Delete a service appointment')); ?>
 
 <p>Do you want to delete the service appointment presented on this screen?</p>
 
 <?php 
 $client = $data->getClient();
-$this->view('Client/detailsPartial', $client); ?>
+$this->view('Client/detailsPartial',$client); ?>
 
-<?php $this->view('Service/detailsPartial', $data); ?>
+<?php $this->view('Service/detailsPartial',$data); ?>
 
 <form method="post" action="">
 	<input type="submit" name="action" value='<?= _('Delete') ?>'>

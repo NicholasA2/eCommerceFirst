@@ -1,4 +1,4 @@
-<?php $this->view('shared/header',_('Edit a client record')); ?>
+<?php $this->view('shared/header', _('Edit a client record')); ?>
 
 <form method="post" action="">
 	<label><?= _('First name:') ?></label><input type="text" name="first_name" value='<?= $data->first_name ?>'><br>

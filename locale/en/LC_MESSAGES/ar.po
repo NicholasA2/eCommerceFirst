@@ -21,15 +21,15 @@ msgstr ""
 
 #: app/views/Client/create.php:1 app/views/Client/index.php:2
 msgid "Create a new client record"
-msgstr "إنشاء سجل عميل جديد"
+msgstr "قم بإنشاء سجل عميل جديد"
 
 #: app/views/Client/create.php:4
 msgid "First name:"
-msgstr "الاسم الأول:"
+msgstr "الاسم الاول :"
 
 #: app/views/Client/create.php:5
 msgid "Last name:"
-msgstr "الاسم الأخير:"
+msgstr "اسم العائلة:"
 
 #: app/views/Client/create.php:6
 msgid "Middle name:"
@@ -49,11 +49,11 @@ msgstr "قائمة العملاء"
 
 #: app/views/Client/index.php:4
 msgid "First name"
-msgstr "الاسم الأول"
+msgstr "الاسم الاول"
 
 #: app/views/Client/index.php:4
 msgid "Last name"
-msgstr "اسم العائلة"
+msgstr "الاسم الاخير"
 
 #: app/views/Client/index.php:4
 msgid "Middle name"
@@ -76,4 +76,4 @@ msgid "en"
 msgstr "ar"
 
 #~ msgid "Create a new client"
-#~ msgstr "إنشاء عميل جديد"
+#~ msgstr "قم بإنشاء عميل جديد"

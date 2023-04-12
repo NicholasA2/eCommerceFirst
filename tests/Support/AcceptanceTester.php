@@ -27,21 +27,20 @@ class AcceptanceTester extends \Codeception\Actor
      * Define custom actions here
      */
 
-
- /**
+     /**
      * @Given I am on Google
- */
+     */
      public function iAmOnGoogle()
      {
          $this->amOnPage("https://google.ca");
      }
 
     /**
-     * @When I input :value in :fieldname
+     * @When I input :value in :fieldName
      */
-     public function iInputIn($value, $fieldname)
+     public function iInputIn($value, $fieldName)
      {
-         $this->fillField($fieldname, $value);
+         $this->fillField($fieldName,$value);
      }
 
     /**
@@ -60,11 +59,12 @@ class AcceptanceTester extends \Codeception\Actor
          $this->see($text);
      }
 
-     /**
-      * @Then I don't see :text
-      */
+    /**
+     * @Then I don't see :text
+     */
      public function iDontSee($text)
      {
-        $this->dontSee($text);
+         $this->dontSee($text);
      }
- }
+
+}

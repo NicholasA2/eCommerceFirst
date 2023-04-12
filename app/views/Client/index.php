@@ -1,4 +1,4 @@
-<?php $this->view('shared/header',_('List of clients')); ?>
+<?php $this->view('shared/header', _('List of clients')); ?>
 <a href='/Client/create'><?= _('Create a new client record') ?></a>
 <table>
 	<tr><th><?= _('First name') ?></th><th><?= _('Last name') ?></th><th><?= _('Middle name') ?></th><th><?= _('actions') ?></th></tr>
@@ -9,8 +9,8 @@ foreach ($data as $client) { ?>
 		<td><?= htmlentities($client->last_name) ?></td>
 		<td><?= htmlentities($client->middle_name) ?></td>
 		<td><a href='/Client/delete/<?=$client->client_id?>'><?= _('delete') ?></a> | 
-			<a href='/Client/edit/<?=$client->client_id?>'><?= _('edit') ?></a> |
-			<a href='/Service/index/<?=$client->client_id?>'><?= _('service') ?></td></tr>
+			<a href='/Client/edit/<?=$client->client_id?>'><?= _('edit') ?></a> | 
+			<a href='/Service/index/<?=$client->client_id?>'><?= _('service') ?></a></td></tr>
 <?php
 
 }
