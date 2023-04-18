@@ -12,6 +12,7 @@ class Service extends \app\core\Model{
 	#[\app\validators\DateTime]
 	protected $datetime;//protected to force the execution of __set and __get in Model
 	public $client_id;
+	public $branch_id;
 
 	protected function setdatetime($value){
 		//on setting, change the timezone
@@ -53,6 +54,7 @@ class Service extends \app\core\Model{
 
 	public function getAllForClient($client_id){
 		$SQL = "SELECT * FROM service WHERE client_id=:client_id";
+		$SQL = "SELECT * FROM service JOIN branch ON service.branch_id = branch.branch_id WHERE client_id=:client_id";
 		$STH = self::$connection->prepare($SQL);
 		$STH->execute(['client_id'=>$client_id]);
 		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Service');

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2023 at 05:42 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 18, 2023 at 05:05 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -26,6 +26,30 @@ USE `webapplication`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `branch`
+--
+
+DROP TABLE IF EXISTS `branch`;
+CREATE TABLE `branch` (
+  `branch_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `province` varchar(50) NOT NULL,
+  `postal` varchar(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `branch`
+--
+
+INSERT INTO `branch` (`branch_id`, `name`, `street`, `city`, `province`, `postal`) VALUES
+(1, 'St-Laurent', '821 Ste-Croix', 'St-Laurent', 'Qc', 'HML t4t'),
+(2, 'Laval', 'Laval', 'Laval', 'Qc', 'H2T 4B3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `client`
 --
 
@@ -35,7 +59,7 @@ CREATE TABLE `client` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `client`
@@ -58,7 +82,7 @@ CREATE TABLE `message` (
   `receiver` int(11) NOT NULL,
   `message` text NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `message`
@@ -80,7 +104,7 @@ CREATE TABLE `profile_information` (
   `last_name` varchar(50) NOT NULL,
   `middle_name` varchar(50) NOT NULL,
   `picture` varchar(1024) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `profile_information`
@@ -101,16 +125,9 @@ CREATE TABLE `service` (
   `service_id` int(11) NOT NULL,
   `description` text NOT NULL,
   `datetime` datetime NOT NULL,
-  `client_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `service`
---
-
-INSERT INTO `service` (`service_id`, `description`, `datetime`, `client_id`) VALUES
-(6, '', '2023-04-05 14:50:56', 43),
-(8, 'Service something', '2023-04-12 13:07:00', 43);
+  `client_id` int(11) NOT NULL,
+  `branch_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -123,7 +140,7 @@ CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password_hash` varchar(72) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
@@ -137,6 +154,12 @@ INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `branch`
+--
+ALTER TABLE `branch`
+  ADD PRIMARY KEY (`branch_id`);
 
 --
 -- Indexes for table `client`
@@ -163,7 +186,8 @@ ALTER TABLE `profile_information`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`service_id`),
-  ADD KEY `service_to_client` (`client_id`);
+  ADD KEY `service_to_client` (`client_id`),
+  ADD KEY `service_to_branch` (`branch_id`);
 
 --
 -- Indexes for table `user`
@@ -175,6 +199,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `branch`
+--
+ALTER TABLE `branch`
+  MODIFY `branch_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `client`
@@ -221,6 +251,7 @@ ALTER TABLE `profile_information`
 -- Constraints for table `service`
 --
 ALTER TABLE `service`
+  ADD CONSTRAINT `service_to_branch` FOREIGN KEY (`branch_id`) REFERENCES `branch` (`branch_id`),
   ADD CONSTRAINT `service_to_client` FOREIGN KEY (`client_id`) REFERENCES `client` (`client_id`);
 COMMIT;
 

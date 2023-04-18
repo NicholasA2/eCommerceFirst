@@ -21,6 +21,7 @@ class Service extends \app\core\Controller{
 			$service->description = htmlentities($_POST['description']);
 			$service->datetime = TimeHelper::DTInput($_POST['datetime']);
 			$service->client_id = $client_id;
+			$service->branch_id = $_POST['branch_id'];
 			//invoke the insert method
 			$service->insert();
 			//back to the list of clients
@@ -28,7 +29,11 @@ class Service extends \app\core\Controller{
 		}else{
 			$client = new \app\models\Client();
 			$client = $client->get($client_id);
-			$this->view('Service/create',$client);
+
+			$branch = new \app\models\Branch();
+			$branches = $branch->getAll();
+
+			$this->view('Service/create',['client'=>$client, 'branches'=>$branches]);
 		}
 	}
 
