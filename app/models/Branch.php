@@ -1,8 +1,6 @@
 <?php
 namespace app\models;
 
-use \app\core\TimeHelper;
-
 class Branch extends \app\core\Model{
 	public $branch_id;
 	public $name;
@@ -12,10 +10,10 @@ class Branch extends \app\core\Model{
 	public $postal;
 
 	public function getAll(){
-		$SQL = "SELECT * FROM branch WHERE client_id=:client_id";
+		$SQL = "SELECT * FROM branch";
 		$STH = self::$connection->prepare($SQL);
-		$STH->execute(['client_id'=>$client_id]);
-		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Service');
+		$STH->execute();
+		$STH->setFetchMode(\PDO::FETCH_CLASS, 'app\\models\\Branch');
 		return $STH->fetchAll();
 	}
 }

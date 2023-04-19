@@ -1,6 +1,6 @@
-<?php 
+<?php
 namespace app\core;
 
 interface Validator{
-	public function isValid($data) : boolean; //return true for valid data
+	public function isValid($data) : bool;//return true for valid data
 }

@@ -1,4 +1,5 @@
 <ul>
+	<li><a href='/Client'>Access the client management application</a></li>
 	<li><a href='/Main/logUser'>Write your name in the log book</a></li>
 	<li><a href='/Main/viewUserLog'>View the log book</a></li>
 	<li><a href='/Main/index'>Index</a></li>
